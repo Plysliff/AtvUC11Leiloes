@@ -5,19 +5,10 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author Adm
- */
 public class conectaDAO {
     
-    private static final String URL = "jdbc:mysql://localhost:3306/leiloestdsat"; //Nome da base de dados
+    // "?useSSL=False" desabilita a necessidade de verificar a identidade do servidor (Usar apenas para projetos locais de estudo)
+    private static final String URL = "jdbc:mysql://localhost:3306/leiloestdsat?useSSL=false"; //Nome da base de dados
     private static final String USER = "root"; //nome do usuário do MySQL
     private static final String PASSWORD = "Sonda#9318054"; //senha do MySQL 
     
