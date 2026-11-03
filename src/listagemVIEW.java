@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Adm
  */
 public class listagemVIEW extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form listagemVIEW
      */
@@ -133,6 +133,7 @@ public class listagemVIEW extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
@@ -201,7 +202,7 @@ public class listagemVIEW extends javax.swing.JFrame {
     private javax.swing.JTable listaProdutos;
     // End of variables declaration//GEN-END:variables
 
-    private void listarProdutos(){
+    public void listarProdutos(){
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
             

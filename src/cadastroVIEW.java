@@ -9,9 +9,9 @@
  */
 public class cadastroVIEW extends javax.swing.JFrame {
 
-    /**
-     * Creates new form cadastroVIEW
-     */
+    private listagemVIEW telaListagem;
+    
+    
     public cadastroVIEW() {
         initComponents();
     }
@@ -132,6 +132,7 @@ public class cadastroVIEW extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastroNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroNomeActionPerformed
@@ -159,14 +160,19 @@ public class cadastroVIEW extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso!");
             cadastroNome.setText("");
             cadastroValor.setText("");
+            
+            if (telaListagem != null && telaListagem.isVisible()) {
+                telaListagem.listarProdutos();
+            }
+            
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro ao cadastrar o produto. Verifique o log.");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
-        listagemVIEW listagem = new listagemVIEW(); 
-        listagem.setVisible(true);
+        telaListagem = new listagemVIEW(); 
+        telaListagem.setVisible(true);
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     /**
