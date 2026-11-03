@@ -4,4 +4,3 @@ Este projeto é um sistema básico para uma casa de leilões, com as funções d
 
 - Java
 - MySQL
-- 
