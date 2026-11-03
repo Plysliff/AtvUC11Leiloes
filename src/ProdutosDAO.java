@@ -25,7 +25,7 @@ public class ProdutosDAO {
     ResultSet resultset;
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
     
-    public void cadastrarProduto (ProdutosDTO produto){
+    public boolean cadastrarProduto (ProdutosDTO produto){
         
         String sql = "INSERT INTO produtos (nome, valor, status) VALUES (?, ?, ?)";
         
@@ -46,8 +46,11 @@ public class ProdutosDAO {
             prep.close();
             conn.close();
             
+            return true;
+            
         } catch (SQLException ex) {
             Logger.getLogger(ProdutosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
         
         

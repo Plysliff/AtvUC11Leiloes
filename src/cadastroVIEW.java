@@ -144,13 +144,24 @@ public class cadastroVIEW extends javax.swing.JFrame {
         String nome = cadastroNome.getText();
         String valor = cadastroValor.getText();
         String status = "A Venda";
+        
+        if (!validation(nome, valor)) {
+            return;
+        }
+        
         produto.setNome(nome);
         produto.setValor(Integer.parseInt(valor));
         produto.setStatus(status);
         
         ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produto);
         
+        if (produtodao.cadastrarProduto(produto)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso!");
+            cadastroNome.setText("");
+            cadastroValor.setText("");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao cadastrar o produto. Verifique o log.");
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
@@ -205,4 +216,24 @@ public class cadastroVIEW extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
+    
+    private boolean validation(String nome, String valor) {
+        // Valida se os campos estão vazios
+        if (nome.isEmpty() || valor.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
+            return false;
+        }
+
+        // Valida se o valor é um número Int
+        try {
+            Integer.parseInt(valor);
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "O campo Valor deve conter apenas números inteiros");
+            return false;
+        }
+
+        // Se passou por tudo, está válido
+        return true;
+    }
+    
 }
