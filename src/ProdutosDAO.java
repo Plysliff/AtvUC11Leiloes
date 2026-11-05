@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 
 public class ProdutosDAO {
@@ -83,6 +84,45 @@ public class ProdutosDAO {
         return listagem;
     }
     
+    
+    public ArrayList<ProdutosDTO> listarProdutosVendidos() {
+        
+        String sql = "SELECT * FROM produtos WHERE status = 'vendido'"; // Comando enviado ao banco
+        ArrayList<ProdutosDTO> listagem = new ArrayList<>(); // Lista para guardar os produtos encontrados no banco
+
+        try {
+            // Abre a conexão, prepara o SELECT, e executa a consulta
+            conn = new ConectaDAO().connectDB();
+            prep = conn.prepareStatement(sql);
+            resultset = prep.executeQuery();
+            
+            // Percorre cada linha da tabela...
+            while (resultset.next()) {
+                // Criando objetos preenchidos com os dados dos objetos banco
+                ProdutosDTO produto = new ProdutosDTO();
+                produto.setId(resultset.getInt("id"));
+                produto.setNome(resultset.getString("nome"));
+                produto.setValor(resultset.getInt("valor"));
+                produto.setStatus(resultset.getString("status"));
+                
+                // Adiciona o objeto criado à lista
+                listagem.add(produto);
+            }
+            
+            // Finaliza a conexão
+            resultset.close();
+            prep.close();
+            conn.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listagem;
+    }
+    
+    
+    
     public void venderProduto(int id) {
         
         // Molde do comando SQL para atualizar o status do produto para vendido
@@ -111,6 +151,10 @@ public class ProdutosDAO {
         
         
     }
+    
+    
+    
+    
     
     
     

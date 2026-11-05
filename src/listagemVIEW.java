@@ -5,13 +5,15 @@ import javax.swing.table.DefaultTableModel;
 
 public class ListagemVIEW extends javax.swing.JFrame {
     
-    /**
-     * Creates new form listagemVIEW
-     */
+    
+    private VendasVIEW telaVendas; 
+    
+    
     public ListagemVIEW() {
         initComponents();
         listarProdutos();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,11 +145,18 @@ public class ListagemVIEW extends javax.swing.JFrame {
         produtosdao.venderProduto(Integer.parseInt(id));
         
         listarProdutos();
+        
+        
+        // Se a janela de vendas estiver aberta, a tabela é atualizada
+        if (telaVendas != null && telaVendas.isVisible()) {
+            telaVendas.listarProdutos(); 
+        }
+        
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        //vendasVIEW vendas = new vendasVIEW(); 
-        //vendas.setVisible(true);
+        telaVendas = new VendasVIEW(); 
+        telaVendas.setVisible(true);
     }//GEN-LAST:event_btnVendasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
