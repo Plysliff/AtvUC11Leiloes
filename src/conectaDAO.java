@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
-public class conectaDAO {
+public class ConectaDAO {
     
     // "?useSSL=False" desabilita a necessidade de verificar a identidade do servidor (Usar apenas para projetos locais de estudo)
     private static final String URL = "jdbc:mysql://localhost:3306/leiloestdsat?useSSL=false"; //Nome da base de dados

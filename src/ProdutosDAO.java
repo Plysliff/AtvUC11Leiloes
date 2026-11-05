@@ -22,7 +22,7 @@ public class ProdutosDAO {
         
         try {
             // Instanciando e chamando a conexão
-            conn = new conectaDAO().connectDB();
+            conn = new ConectaDAO().connectDB();
             prep = conn.prepareStatement(sql);
             
             // Preparando comando
@@ -54,7 +54,7 @@ public class ProdutosDAO {
 
         try {
             // Abre a conexão, prepara o SELECT, e executa a consulta
-            conn = new conectaDAO().connectDB();
+            conn = new ConectaDAO().connectDB();
             prep = conn.prepareStatement(sql);
             resultset = prep.executeQuery();
             
@@ -81,6 +81,35 @@ public class ProdutosDAO {
         }
 
         return listagem;
+    }
+    
+    public void venderProduto(int id) {
+        
+        // Molde do comando SQL para atualizar o status do produto para vendido
+        String sql = "UPDATE produtos SET status = 'vendido' WHERE id = ?";
+        
+        
+        // Realizando a conexão e preparando Statement
+        try {
+            // Instanciando e chamando a conexão
+            conn = new ConectaDAO().connectDB();
+            prep = conn.prepareStatement(sql);
+            
+            // Preparando comando
+            prep.setInt(1, id);
+            
+            // Pxecutando o comando
+            prep.executeUpdate();
+            
+            // Fechando a conexão
+            prep.close();
+            conn.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
     
     

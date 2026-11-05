@@ -7,12 +7,12 @@
  *
  * @author Adm
  */
-public class cadastroVIEW extends javax.swing.JFrame {
+public class CadastroVIEW extends javax.swing.JFrame {
 
-    private listagemVIEW telaListagem;
+    private ListagemVIEW telaListagem;
     
     
-    public cadastroVIEW() {
+    public CadastroVIEW() {
         initComponents();
     }
 
@@ -171,7 +171,7 @@ public class cadastroVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
-        telaListagem = new listagemVIEW(); 
+        telaListagem = new ListagemVIEW(); 
         telaListagem.setVisible(true);
     }//GEN-LAST:event_btnProdutosActionPerformed
 
@@ -192,20 +192,20 @@ public class cadastroVIEW extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cadastroVIEW().setVisible(true);
+                new CadastroVIEW().setVisible(true);
             }
         });
     }
